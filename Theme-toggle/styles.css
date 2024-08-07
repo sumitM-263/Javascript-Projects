@@ -1,0 +1,118 @@
+*{
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+svg{
+    height: 50px;
+    width: 50px;
+}
+
+body{
+
+    --accent-color: orangered;
+    --background-color: white;
+    --text-color: black;
+    --button-text-color: var(--background-color);
+    --transition-delay: 1s;
+    --button-icon-color: var(--background-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    
+    transition: var(--transition-delay);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark{
+
+    --accent-color: #ffff03;
+    --background-color: #171717;
+    --text-color: white;
+
+    
+}
+
+.title{
+    margin:0;
+    margin-bottom: 1rem;
+}
+
+.theme-toggle-button{
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+    font-weight: 600;
+    font-size: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: .5em 1em;
+    border-radius: .3em;
+    border: none;
+    outline: none;
+    transition: var(--transition-delay);
+    transform: scale(1);
+}
+
+.theme-toggle-button:hover,
+.theme-toggle-button:focus{
+    transform: scale(1.1);
+}
+
+.icon{
+    fill: var(--button-icon-color);
+    margin-right: .5rem;
+}
+
+.sun-moon-container{
+    --rotation: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    height: 200vmin;
+    pointer-events: none;
+    transform: rotate(calc(var(--rotation)*1deg));
+    transition: transform var(--transition-delay);
+}
+
+.dark .sun-moon-container{
+    --rotation: 0;
+}
+
+.sun,.moon{
+    position: absolute;
+    transition: opacity, fill, var(--transition-delay);
+    fill: var(--accent-color);
+}
+
+.sun{
+    top:5%;
+    opacity: 1;
+}
+
+.dark .sun{
+    opacity: 0;
+}
+
+.moon{
+    bottom: 5%;
+    opacity: 0;
+    transform: rotate(180deg);
+}
+
+.dark .moon{
+    opacity: 1;
+}
+
+
+
